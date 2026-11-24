@@ -149,16 +149,6 @@ shared/fixtures/                 Shared fixture: TypeScript engine == C# engine
 docs/PRD.md                      Product requirements (in Indonesian)
 ```
 
-## Roadmap
-
-- [x] Typing engine and single-player race
-- [x] Backend: nickname identity, validated results, leaderboard and stats
-- [x] Bots, difficulty levels and ghost mode
-- [x] Sound, weak-key training, settings, responsive layout
-- [ ] Public deployment (Ubuntu VPS with Nginx and HTTPS)
-- [ ] More passages in both languages
-- [ ] Real-time multiplayer with SignalR (optional)
-
 ## Author
 
 Built by **Mustofa** ([@mustofaalatasss](https://github.com/mustofaalatasss)). Feedback and ideas are welcome;

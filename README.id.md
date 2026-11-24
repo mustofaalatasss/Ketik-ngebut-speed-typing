@@ -153,16 +153,6 @@ shared/fixtures/                 Fixture bersama: mesin TypeScript == mesin C#
 docs/PRD.md                      Dokumen kebutuhan produk
 ```
 
-## Rencana
-
-- [x] Mesin mengetik dan balapan satu pemain
-- [x] Backend: identitas nickname, validasi hasil, leaderboard, dan statistik
-- [x] Bot, tingkat kesulitan, dan mode ghost
-- [x] Suara, latihan huruf lemah, pengaturan, dan tampilan responsif
-- [ ] Deploy publik (VPS Ubuntu dengan Nginx dan HTTPS)
-- [ ] Tambah teks dalam kedua bahasa
-- [ ] Multiplayer real-time dengan SignalR (opsional)
-
 ## Pembuat
 
 Dibuat oleh **Mustofa** ([@mustofaalatasss](https://github.com/mustofaalatasss)). Masukan dan ide sangat
