@@ -1,0 +1,46 @@
+# Node / frontend
+node_modules/
+web/dist/
+coverage/
+*.tsbuildinfo
+npm-debug.log*
+
+# .NET
+bin/
+obj/
+TestResults/
+*.user
+*.suo
+.vs/
+
+# Editor
+.vscode/*
+!.vscode/extensions.json
+.idea/
+
+# Data lokal (SQLite)
+*.db
+*.db-wal
+*.db-shm
+
+# Secret dan konfigurasi lokal
+.env
+.env.*
+appsettings.*.local.json
+secrets.json
+
+# OS
+Thumbs.db
+.DS_Store
+
+# Database lokal
+App_Data/
+design-time.db
+
+# Hasil build untuk deploy
+publish/
+
+# Berkas kerja lokal (tidak diunggah)
+CLAUDE.md
+PROMPTS.md
+.claude/

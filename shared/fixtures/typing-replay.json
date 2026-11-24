@@ -1,0 +1,852 @@
+{
+ "description": "Fixture bersama mesin mengetik: dites oleh Vitest (web) dan xUnit (C#). Nilai expected dihasilkan dari mesin TypeScript.",
+ "cases": [
+  {
+   "name": "abc benar semua",
+   "text": "abc",
+   "maxErrorBuffer": 8,
+   "nowMs": 0,
+   "log": [
+    {
+     "key": "a",
+     "t": 100
+    },
+    {
+     "key": "b",
+     "t": 200
+    },
+    {
+     "key": "c",
+     "t": 300
+    }
+   ],
+   "expected": {
+    "cursor": 3,
+    "errorBuffer": "",
+    "correctKeystrokes": 3,
+    "totalKeystrokes": 3,
+    "finishedAtMs": 300,
+    "logLength": 3,
+    "correctCharTimes": [
+     100,
+     200,
+     300
+    ],
+    "wpm": 120,
+    "accuracy": 1,
+    "netWpm": 120,
+    "progress": 1,
+    "elapsedMs": 300
+   }
+  },
+  {
+   "name": "salah lalu backspace",
+   "text": "abc",
+   "maxErrorBuffer": 8,
+   "nowMs": 0,
+   "log": [
+    {
+     "key": "a",
+     "t": 100
+    },
+    {
+     "key": "x",
+     "t": 200
+    },
+    {
+     "key": "Backspace",
+     "t": 300
+    },
+    {
+     "key": "b",
+     "t": 400
+    },
+    {
+     "key": "c",
+     "t": 500
+    }
+   ],
+   "expected": {
+    "cursor": 3,
+    "errorBuffer": "",
+    "correctKeystrokes": 3,
+    "totalKeystrokes": 4,
+    "finishedAtMs": 500,
+    "logLength": 5,
+    "correctCharTimes": [
+     100,
+     400,
+     500
+    ],
+    "wpm": 72,
+    "accuracy": 0.75,
+    "netWpm": 54,
+    "progress": 1,
+    "elapsedMs": 500
+   }
+  },
+  {
+   "name": "karakter benar saat buffer berisi tetap salah",
+   "text": "ab",
+   "maxErrorBuffer": 8,
+   "nowMs": 0,
+   "log": [
+    {
+     "key": "a",
+     "t": 100
+    },
+    {
+     "key": "x",
+     "t": 200
+    },
+    {
+     "key": "b",
+     "t": 300
+    },
+    {
+     "key": "Backspace",
+     "t": 400
+    },
+    {
+     "key": "Backspace",
+     "t": 500
+    },
+    {
+     "key": "b",
+     "t": 600
+    }
+   ],
+   "expected": {
+    "cursor": 2,
+    "errorBuffer": "",
+    "correctKeystrokes": 2,
+    "totalKeystrokes": 4,
+    "finishedAtMs": 600,
+    "logLength": 6,
+    "correctCharTimes": [
+     100,
+     600
+    ],
+    "wpm": 40,
+    "accuracy": 0.5,
+    "netWpm": 20,
+    "progress": 1,
+    "elapsedMs": 600
+   }
+  },
+  {
+   "name": "buffer penuh lalu input setelah selesai diabaikan",
+   "text": "a",
+   "maxErrorBuffer": 8,
+   "nowMs": 0,
+   "log": [
+    {
+     "key": "x",
+     "t": 100
+    },
+    {
+     "key": "x",
+     "t": 200
+    },
+    {
+     "key": "x",
+     "t": 300
+    },
+    {
+     "key": "x",
+     "t": 400
+    },
+    {
+     "key": "x",
+     "t": 500
+    },
+    {
+     "key": "x",
+     "t": 600
+    },
+    {
+     "key": "x",
+     "t": 700
+    },
+    {
+     "key": "x",
+     "t": 800
+    },
+    {
+     "key": "x",
+     "t": 900
+    },
+    {
+     "key": "x",
+     "t": 1000
+    },
+    {
+     "key": "Backspace",
+     "t": 1100
+    },
+    {
+     "key": "Backspace",
+     "t": 1200
+    },
+    {
+     "key": "Backspace",
+     "t": 1300
+    },
+    {
+     "key": "Backspace",
+     "t": 1400
+    },
+    {
+     "key": "Backspace",
+     "t": 1500
+    },
+    {
+     "key": "Backspace",
+     "t": 1600
+    },
+    {
+     "key": "Backspace",
+     "t": 1700
+    },
+    {
+     "key": "Backspace",
+     "t": 1800
+    },
+    {
+     "key": "a",
+     "t": 1900
+    },
+    {
+     "key": "b",
+     "t": 2000
+    },
+    {
+     "key": "Backspace",
+     "t": 2100
+    }
+   ],
+   "expected": {
+    "cursor": 1,
+    "errorBuffer": "",
+    "correctKeystrokes": 1,
+    "totalKeystrokes": 11,
+    "finishedAtMs": 1900,
+    "logLength": 19,
+    "correctCharTimes": [
+     1900
+    ],
+    "wpm": 6.315789473684211,
+    "accuracy": 0.09090909090909091,
+    "netWpm": 0.5741626794258373,
+    "progress": 1,
+    "elapsedMs": 1900
+   }
+  },
+  {
+   "name": "backspace saat buffer kosong tetap dicatat",
+   "text": "ab",
+   "maxErrorBuffer": 8,
+   "nowMs": 0,
+   "log": [
+    {
+     "key": "Backspace",
+     "t": 50
+    },
+    {
+     "key": "a",
+     "t": 100
+    },
+    {
+     "key": "Backspace",
+     "t": 150
+    },
+    {
+     "key": "b",
+     "t": 200
+    }
+   ],
+   "expected": {
+    "cursor": 2,
+    "errorBuffer": "",
+    "correctKeystrokes": 2,
+    "totalKeystrokes": 2,
+    "finishedAtMs": 200,
+    "logLength": 4,
+    "correctCharTimes": [
+     100,
+     200
+    ],
+    "wpm": 120,
+    "accuracy": 1,
+    "netWpm": 120,
+    "progress": 1,
+    "elapsedMs": 200
+   }
+  },
+  {
+   "name": "belum selesai saat batas waktu",
+   "text": "hello",
+   "maxErrorBuffer": 8,
+   "nowMs": 180000,
+   "log": [
+    {
+     "key": "h",
+     "t": 100
+    },
+    {
+     "key": "e",
+     "t": 200
+    },
+    {
+     "key": "x",
+     "t": 300
+    }
+   ],
+   "expected": {
+    "cursor": 2,
+    "errorBuffer": "x",
+    "correctKeystrokes": 2,
+    "totalKeystrokes": 3,
+    "finishedAtMs": null,
+    "logLength": 3,
+    "correctCharTimes": [
+     100,
+     200
+    ],
+    "wpm": 0.13333333333333333,
+    "accuracy": 0.6666666666666666,
+    "netWpm": 0.08888888888888888,
+    "progress": 0.4,
+    "elapsedMs": 180000
+   }
+  },
+  {
+   "name": "50 karakter dalam 12 detik",
+   "text": "abcdefghijabcdefghijabcdefghijabcdefghijabcdefghij",
+   "maxErrorBuffer": 8,
+   "nowMs": 0,
+   "log": [
+    {
+     "key": "a",
+     "t": 240
+    },
+    {
+     "key": "b",
+     "t": 480
+    },
+    {
+     "key": "c",
+     "t": 720
+    },
+    {
+     "key": "d",
+     "t": 960
+    },
+    {
+     "key": "e",
+     "t": 1200
+    },
+    {
+     "key": "f",
+     "t": 1440
+    },
+    {
+     "key": "g",
+     "t": 1680
+    },
+    {
+     "key": "h",
+     "t": 1920
+    },
+    {
+     "key": "i",
+     "t": 2160
+    },
+    {
+     "key": "j",
+     "t": 2400
+    },
+    {
+     "key": "a",
+     "t": 2640
+    },
+    {
+     "key": "b",
+     "t": 2880
+    },
+    {
+     "key": "c",
+     "t": 3120
+    },
+    {
+     "key": "d",
+     "t": 3360
+    },
+    {
+     "key": "e",
+     "t": 3600
+    },
+    {
+     "key": "f",
+     "t": 3840
+    },
+    {
+     "key": "g",
+     "t": 4080
+    },
+    {
+     "key": "h",
+     "t": 4320
+    },
+    {
+     "key": "i",
+     "t": 4560
+    },
+    {
+     "key": "j",
+     "t": 4800
+    },
+    {
+     "key": "a",
+     "t": 5040
+    },
+    {
+     "key": "b",
+     "t": 5280
+    },
+    {
+     "key": "c",
+     "t": 5520
+    },
+    {
+     "key": "d",
+     "t": 5760
+    },
+    {
+     "key": "e",
+     "t": 6000
+    },
+    {
+     "key": "f",
+     "t": 6240
+    },
+    {
+     "key": "g",
+     "t": 6480
+    },
+    {
+     "key": "h",
+     "t": 6720
+    },
+    {
+     "key": "i",
+     "t": 6960
+    },
+    {
+     "key": "j",
+     "t": 7200
+    },
+    {
+     "key": "a",
+     "t": 7440
+    },
+    {
+     "key": "b",
+     "t": 7680
+    },
+    {
+     "key": "c",
+     "t": 7920
+    },
+    {
+     "key": "d",
+     "t": 8160
+    },
+    {
+     "key": "e",
+     "t": 8400
+    },
+    {
+     "key": "f",
+     "t": 8640
+    },
+    {
+     "key": "g",
+     "t": 8880
+    },
+    {
+     "key": "h",
+     "t": 9120
+    },
+    {
+     "key": "i",
+     "t": 9360
+    },
+    {
+     "key": "j",
+     "t": 9600
+    },
+    {
+     "key": "a",
+     "t": 9840
+    },
+    {
+     "key": "b",
+     "t": 10080
+    },
+    {
+     "key": "c",
+     "t": 10320
+    },
+    {
+     "key": "d",
+     "t": 10560
+    },
+    {
+     "key": "e",
+     "t": 10800
+    },
+    {
+     "key": "f",
+     "t": 11040
+    },
+    {
+     "key": "g",
+     "t": 11280
+    },
+    {
+     "key": "h",
+     "t": 11520
+    },
+    {
+     "key": "i",
+     "t": 11760
+    },
+    {
+     "key": "j",
+     "t": 12000
+    }
+   ],
+   "expected": {
+    "cursor": 50,
+    "errorBuffer": "",
+    "correctKeystrokes": 50,
+    "totalKeystrokes": 50,
+    "finishedAtMs": 12000,
+    "logLength": 50,
+    "correctCharTimes": [
+     240,
+     480,
+     720,
+     960,
+     1200,
+     1440,
+     1680,
+     1920,
+     2160,
+     2400,
+     2640,
+     2880,
+     3120,
+     3360,
+     3600,
+     3840,
+     4080,
+     4320,
+     4560,
+     4800,
+     5040,
+     5280,
+     5520,
+     5760,
+     6000,
+     6240,
+     6480,
+     6720,
+     6960,
+     7200,
+     7440,
+     7680,
+     7920,
+     8160,
+     8400,
+     8640,
+     8880,
+     9120,
+     9360,
+     9600,
+     9840,
+     10080,
+     10320,
+     10560,
+     10800,
+     11040,
+     11280,
+     11520,
+     11760,
+     12000
+    ],
+    "wpm": 50,
+    "accuracy": 1,
+    "netWpm": 50,
+    "progress": 1,
+    "elapsedMs": 12000
+   }
+  },
+  {
+   "name": "kunci tidak dikenal diabaikan",
+   "text": "ab",
+   "maxErrorBuffer": 8,
+   "nowMs": 0,
+   "log": [
+    {
+     "key": "a",
+     "t": 100
+    },
+    {
+     "key": "Shift",
+     "t": 150
+    },
+    {
+     "key": "",
+     "t": 160
+    },
+    {
+     "key": "b",
+     "t": 200
+    }
+   ],
+   "expected": {
+    "cursor": 2,
+    "errorBuffer": "",
+    "correctKeystrokes": 2,
+    "totalKeystrokes": 2,
+    "finishedAtMs": 200,
+    "logLength": 2,
+    "correctCharTimes": [
+     100,
+     200
+    ],
+    "wpm": 120,
+    "accuracy": 1,
+    "netWpm": 120,
+    "progress": 1,
+    "elapsedMs": 200
+   }
+  },
+  {
+   "name": "huruf besar kecil dibedakan",
+   "text": "Ab",
+   "maxErrorBuffer": 8,
+   "nowMs": 0,
+   "log": [
+    {
+     "key": "a",
+     "t": 120
+    },
+    {
+     "key": "Backspace",
+     "t": 250
+    },
+    {
+     "key": "A",
+     "t": 380
+    },
+    {
+     "key": "b",
+     "t": 510
+    }
+   ],
+   "expected": {
+    "cursor": 2,
+    "errorBuffer": "",
+    "correctKeystrokes": 2,
+    "totalKeystrokes": 3,
+    "finishedAtMs": 510,
+    "logLength": 4,
+    "correctCharTimes": [
+     380,
+     510
+    ],
+    "wpm": 47.05882352941176,
+    "accuracy": 0.6666666666666666,
+    "netWpm": 31.37254901960784,
+    "progress": 1,
+    "elapsedMs": 510
+   }
+  },
+  {
+   "name": "buffer kecil 2",
+   "text": "abc",
+   "maxErrorBuffer": 2,
+   "nowMs": 0,
+   "log": [
+    {
+     "key": "x",
+     "t": 90
+    },
+    {
+     "key": "y",
+     "t": 200
+    },
+    {
+     "key": "z",
+     "t": 310
+    },
+    {
+     "key": "Backspace",
+     "t": 420
+    },
+    {
+     "key": "Backspace",
+     "t": 530
+    },
+    {
+     "key": "a",
+     "t": 640
+    },
+    {
+     "key": "b",
+     "t": 750
+    },
+    {
+     "key": "q",
+     "t": 860
+    },
+    {
+     "key": "Backspace",
+     "t": 970
+    },
+    {
+     "key": "c",
+     "t": 1080
+    }
+   ],
+   "expected": {
+    "cursor": 3,
+    "errorBuffer": "",
+    "correctKeystrokes": 3,
+    "totalKeystrokes": 7,
+    "finishedAtMs": 1080,
+    "logLength": 10,
+    "correctCharTimes": [
+     640,
+     750,
+     1080
+    ],
+    "wpm": 33.333333333333336,
+    "accuracy": 0.42857142857142855,
+    "netWpm": 14.285714285714286,
+    "progress": 1,
+    "elapsedMs": 1080
+   }
+  },
+  {
+   "name": "kalimat dengan spasi dan tanda baca",
+   "text": "Hai, dunia!",
+   "maxErrorBuffer": 8,
+   "nowMs": 0,
+   "log": [
+    {
+     "key": "H",
+     "t": 173
+    },
+    {
+     "key": "a",
+     "t": 330
+    },
+    {
+     "key": "i",
+     "t": 487
+    },
+    {
+     "key": ",",
+     "t": 644
+    },
+    {
+     "key": " ",
+     "t": 801
+    },
+    {
+     "key": "d",
+     "t": 958
+    },
+    {
+     "key": "u",
+     "t": 1115
+    },
+    {
+     "key": "n",
+     "t": 1272
+    },
+    {
+     "key": "u",
+     "t": 1429
+    },
+    {
+     "key": "Backspace",
+     "t": 1586
+    },
+    {
+     "key": "i",
+     "t": 1743
+    },
+    {
+     "key": "a",
+     "t": 1900
+    },
+    {
+     "key": "!",
+     "t": 2057
+    }
+   ],
+   "expected": {
+    "cursor": 11,
+    "errorBuffer": "",
+    "correctKeystrokes": 11,
+    "totalKeystrokes": 12,
+    "finishedAtMs": 2057,
+    "logLength": 13,
+    "correctCharTimes": [
+     173,
+     330,
+     487,
+     644,
+     801,
+     958,
+     1115,
+     1272,
+     1743,
+     1900,
+     2057
+    ],
+    "wpm": 64.1711229946524,
+    "accuracy": 0.9166666666666666,
+    "netWpm": 58.8235294117647,
+    "progress": 1,
+    "elapsedMs": 2057
+   }
+  },
+  {
+   "name": "tanpa keystroke",
+   "text": "abc",
+   "maxErrorBuffer": 8,
+   "nowMs": 5000,
+   "log": [],
+   "expected": {
+    "cursor": 0,
+    "errorBuffer": "",
+    "correctKeystrokes": 0,
+    "totalKeystrokes": 0,
+    "finishedAtMs": null,
+    "logLength": 0,
+    "correctCharTimes": [],
+    "wpm": 0,
+    "accuracy": 1,
+    "netWpm": 0,
+    "progress": 0,
+    "elapsedMs": 5000
+   }
+  }
+ ]
+}

@@ -1,0 +1,11 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/KetikNgebut.Api/KetikNgebut.Api.csproj" />
+    <Project Path="src/KetikNgebut.Application/KetikNgebut.Application.csproj" />
+    <Project Path="src/KetikNgebut.Domain/KetikNgebut.Domain.csproj" />
+    <Project Path="src/KetikNgebut.Infrastructure/KetikNgebut.Infrastructure.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/KetikNgebut.Tests/KetikNgebut.Tests.csproj" />
+  </Folder>
+</Solution>

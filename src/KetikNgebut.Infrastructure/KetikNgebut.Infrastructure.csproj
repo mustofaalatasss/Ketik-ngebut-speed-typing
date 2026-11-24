@@ -1,0 +1,28 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <ItemGroup>
+    <ProjectReference Include="..\KetikNgebut.Application\KetikNgebut.Application.csproj" />
+    <ProjectReference Include="..\KetikNgebut.Domain\KetikNgebut.Domain.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="10.0.15" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="10.0.15">
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="10.0.15" />
+    <PackageReference Include="Microsoft.IdentityModel.JsonWebTokens" Version="8.19.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- Satu sumber kebenaran teks: file JSON frontend ditanam ke assembly untuk seed database (PAS-1). -->
+    <EmbeddedResource Include="..\..\web\src\data\passages.json" Link="Persistence\Seed\passages.json" LogicalName="KetikNgebut.Seed.passages.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <InternalsVisibleTo Include="KetikNgebut.Tests" />
+  </ItemGroup>
+
+</Project>
+
