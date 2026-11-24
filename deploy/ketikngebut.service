@@ -1,0 +1,42 @@
+# Service systemd untuk backend KetikNgebut.
+# Pasang:  sudo cp /opt/ketikngebut/deploy/ketikngebut.service /etc/systemd/system/
+#          sudo systemctl daemon-reload && sudo systemctl enable --now ketikngebut
+
+[Unit]
+Description=KetikNgebut API (.NET)
+After=network.target
+
+[Service]
+Type=simple
+User=ketikngebut
+Group=ketikngebut
+WorkingDirectory=/opt/ketikngebut/api
+ExecStart=/usr/bin/dotnet /opt/ketikngebut/api/KetikNgebut.Api.dll
+
+# Secret (kunci JWT, akun admin, lokasi database) dibaca dari berkas ini; hanya root yang bisa membacanya.
+EnvironmentFile=/etc/ketikngebut/ketikngebut.env
+Environment=ASPNETCORE_ENVIRONMENT=Production
+# Hanya mendengarkan di localhost: dari luar hanya bisa diakses lewat Nginx.
+Environment=ASPNETCORE_URLS=http://127.0.0.1:5288
+Environment=DOTNET_CLI_TELEMETRY_OPTOUT=1
+
+# Hemat memori untuk VPS 1 GB (terukur: ~30 MB private saat idle, ~55 MB saat 20 pemain sekaligus).
+Environment=DOTNET_gcServer=0
+Environment=DOTNET_GCConserveMemory=7
+Environment=DOTNET_GCHeapHardLimit=0x6000000
+Environment=DOTNET_TieredPGO=0
+MemoryHigh=200M
+MemoryMax=256M
+
+Restart=always
+RestartSec=5
+
+# Pembatasan keamanan: proses tidak bisa menulis ke mana pun kecuali folder database.
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=true
+ReadWritePaths=/var/lib/ketikngebut
+
+[Install]
+WantedBy=multi-user.target

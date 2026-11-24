@@ -9,6 +9,12 @@
 </p>
 
 <p align="center">
+  <a href="https://ketik-ngebut-speed-typing.my.id">
+    <img alt="Main sekarang: ketik-ngebut-speed-typing.my.id" src="https://img.shields.io/badge/%E2%96%B6%20Main%20sekarang-ketik--ngebut--speed--typing.my.id-fa6231?style=for-the-badge" />
+  </a>
+</p>
+
+<p align="center">
   <a href="README.md">English</a> · <strong>Bahasa Indonesia</strong>
 </p>
 
@@ -132,6 +138,9 @@ Kebutuhan: [.NET 10 SDK](https://dotnet.microsoft.com/download) dan [Node.js LTS
 
 4. Buka http://localhost:5173 dan mulai mengetik. Frontend juga bisa dipakai tanpa backend: kamu bisa
    main sebagai tamu dengan teks bawaan.
+
+Cara deploy ke VPS Linux (systemd, Nginx, HTTPS, backup) dijelaskan langkah demi langkah di
+[docs/DEPLOY.md](docs/DEPLOY.md).
 
 Menjalankan test:
 
