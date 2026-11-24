@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="docs/banner.gif" alt="KetikNgebut: mahir mengetik, jadi cepat!" width="640" />
+  <img src="docs/banner-logo.gif" alt="KetikNgebut: mahir mengetik, jadi cepat!" width="640" />
 </p>
 
 # KetikNgebut
