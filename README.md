@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="docs/banner.gif" alt="KetikNgebut: mahir mengetik, jadi cepat!" width="640" />
+</p>
+
 # KetikNgebut
 
 Game balap mobil di browser: kecepatan mobil mengikuti kecepatan dan ketepatan mengetik.
